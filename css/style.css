@@ -1,0 +1,221 @@
+/* Global Styles */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #0b192c;
+}
+.navbar-brand {
+  color: #ff6500;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.navbar-nav a {
+  color: white !important;
+  font-weight: 500;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #1e3e62;
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+/* Card Styles */
+.card {
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+  background-color: #0b192c;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+.footer a {
+  color: #ff6500;
+  text-decoration: none;
+}
+
+/* Daftar Berita */
+.news-list-section {
+  margin-top: 40px;
+}
+.news-item {
+  margin-bottom: 30px;
+}
+.news-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.news-item h5 {
+  color: #1e3e62;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 15px;
+}
+.news-item p {
+  color: gray;
+  margin-bottom: 15px;
+}
+.pagination {
+  justify-content: center;
+}
+
+/* Admin Dashboard */
+.sidebar {
+  background-color: #1e3e62;
+  height: 100vh;
+  color: white;
+  padding-top: 20px;
+}
+.sidebar a {
+  color: white;
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+}
+.sidebar a:hover {
+  background-color: #ff6500;
+}
+.main-content {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+.main-content h1 {
+  color: #0b192c;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.btn-action {
+  margin-right: 5px;
+}
+
+/* Detail Berita */
+.news-header {
+  margin-top: 30px;
+}
+.news-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0b192c;
+}
+.news-meta {
+  color: gray;
+  margin-bottom: 20px;
+}
+.news-meta span {
+  margin-right: 15px;
+}
+.news-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.news-content {
+  line-height: 1.7;
+}
+.related-news-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff6500;
+  margin-bottom: 20px;
+}
+.comment-section h4 {
+  font-size: 1.5rem;
+  color: #1e3e62;
+  margin-bottom: 20px;
+}
+.comment-form textarea {
+  resize: none;
+}
+.btn-social i {
+  margin-right: 8px;
+}
+.news-actions {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.news-actions a {
+  margin-right: 10px;
+}
+
+/* Login & Register */
+.login-container,
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+}
+.btn-social {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.btn-social i {
+  margin-right: 8px;
+}
+.card-header {
+  background-color: #0b192c;
+  color: white;
+  text-align: center;
+}
+
+/* Tentang Kami */
+.about-header {
+  background-color: #1e3e62;
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+.about-section {
+  margin-top: 40px;
+}
+.about-description {
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.vision-mission {
+  margin-bottom: 50px;
+}
+.vision-mission h3 {
+  color: #ff6500;
+}
+.team-section h3 {
+  color: #ff6500;
+  margin-bottom: 30px;
+}
+.team-member {
+  margin-bottom: 30px;
+}
+.team-member img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.team-member h5 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1e3e62;
+}
+.team-member p {
+  color: gray;
+}
