@@ -1,12 +1,17 @@
 <?php 
+session_start();
+if (!isset($_SESSION['level']) || $_SESSION['level'] !== 'admin') {
+  header('Location: login.php');
+  exit;
+}
 include "koneksi.php";
 
 $var = $_GET["d"];
 
 $daftar = [
-    'users' => ['id', 'username', 'email', 'password', 'level'],
-    'berita' => ['id', 'foto', 'judul', 'isi', 'tanggal'],
-    'tim' => ['id', 'foto', 'nama', 'nim']
+    'users' => ['username', 'email', 'password', 'level'],
+    'berita' => ['foto', 'judul', 'isi', 'tanggal'],
+    'tim' => ['foto', 'nama', 'nim']
 ];
 
 if (!array_key_exists($var, $daftar)) {
@@ -35,6 +40,11 @@ if (isset($_POST['simpan'])) {
             move_uploaded_file($tmp_name, $lokasi);
             $fields[] = $field;
             $values[] = "'$nama_file'";
+        } elseif ($field === 'password') {
+            $raw = $_POST[$field];
+            $hash = password_hash($raw, PASSWORD_DEFAULT);
+            $fields[] = $field;
+            $values[] = "'" . mysqli_real_escape_string($con, $hash) . "'";
         } else {
             $value = mysqli_real_escape_string($con, $_POST[$field]);
             $fields[] = $field;
@@ -97,7 +107,7 @@ if (isset($_POST['simpan'])) {
         ";
     }
     ?>
-    <input type="submit" class="btn btn-primary" value="Update" name="simpan">
+    <input type="submit" class="btn btn-primary" value="Tambah" name="simpan">
   </form>
 </div>
 

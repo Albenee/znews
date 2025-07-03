@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['level']) || $_SESSION['level'] !== 'admin') {
+  header('Location: login.php');
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -132,256 +139,28 @@
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
-              <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-              <li class="nav-item dropdown no-arrow d-sm-none">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="searchDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div
-                  class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                  aria-labelledby="searchDropdown"
-                >
-                  <form class="form-inline mr-auto w-100 navbar-search">
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control bg-light border-0 small"
-                        placeholder="Search for..."
-                        aria-label="Search"
-                        aria-describedby="basic-addon2"
-                      />
-                      <div class="input-group-append">
-                        <button class="btn btn-primary" type="button">
-                          <i class="fas fa-search fa-sm"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </li>
-
-              <!-- Nav Item - Alerts -->
-              <li class="nav-item dropdown no-arrow mx-1">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="alertsDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-bell fa-fw"></i>
-                  <!-- Counter - Alerts -->
-                  <span class="badge badge-danger badge-counter">3+</span>
-                </a>
-                <!-- Dropdown - Alerts -->
-                <div
-                  class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="alertsDropdown"
-                >
-                  <h6 class="dropdown-header">Alerts Center</h6>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                      <div class="icon-circle bg-primary">
-                        <i class="fas fa-file-alt text-white"></i>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="small text-gray-500">December 12, 2019</div>
-                      <span class="font-weight-bold"
-                        >A new monthly report is ready to download!</span
-                      >
-                    </div>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                      <div class="icon-circle bg-success">
-                        <i class="fas fa-donate text-white"></i>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="small text-gray-500">December 7, 2019</div>
-                      $290.29 has been deposited into your account!
-                    </div>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                      <div class="icon-circle bg-warning">
-                        <i class="fas fa-exclamation-triangle text-white"></i>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="small text-gray-500">December 2, 2019</div>
-                      Spending Alert: We've noticed unusually high spending for
-                      your account.
-                    </div>
-                  </a>
-                  <a
-                    class="dropdown-item text-center small text-gray-500"
-                    href="#"
-                    >Show All Alerts</a
-                  >
-                </div>
-              </li>
-
-              <!-- Nav Item - Messages -->
-              <li class="nav-item dropdown no-arrow mx-1">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="messagesDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-envelope fa-fw"></i>
-                  <!-- Counter - Messages -->
-                  <span class="badge badge-danger badge-counter">7</span>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div
-                  class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="messagesDropdown"
-                >
-                  <h6 class="dropdown-header">Message Center</h6>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image mr-3">
-                      <img
-                        class="rounded-circle"
-                        src="img/undraw_profile_1.svg"
-                        alt="..."
-                      />
-                      <div class="status-indicator bg-success"></div>
-                    </div>
-                    <div class="font-weight-bold">
-                      <div class="text-truncate">
-                        Hi there! I am wondering if you can help me with a
-                        problem I've been having.
-                      </div>
-                      <div class="small text-gray-500">Emily Fowler · 58m</div>
-                    </div>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image mr-3">
-                      <img
-                        class="rounded-circle"
-                        src="img/undraw_profile_2.svg"
-                        alt="..."
-                      />
-                      <div class="status-indicator"></div>
-                    </div>
-                    <div>
-                      <div class="text-truncate">
-                        I have the photos that you ordered last month, how would
-                        you like them sent to you?
-                      </div>
-                      <div class="small text-gray-500">Jae Chun · 1d</div>
-                    </div>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image mr-3">
-                      <img
-                        class="rounded-circle"
-                        src="img/undraw_profile_3.svg"
-                        alt="..."
-                      />
-                      <div class="status-indicator bg-warning"></div>
-                    </div>
-                    <div>
-                      <div class="text-truncate">
-                        Last month's report looks great, I am very happy with
-                        the progress so far, keep up the good work!
-                      </div>
-                      <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                    </div>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image mr-3">
-                      <img
-                        class="rounded-circle"
-                        src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                        alt="..."
-                      />
-                      <div class="status-indicator bg-success"></div>
-                    </div>
-                    <div>
-                      <div class="text-truncate">
-                        Am I a good boy? The reason I ask is because someone
-                        told me that people say this to all dogs, even if they
-                        aren't good...
-                      </div>
-                      <div class="small text-gray-500">
-                        Chicken the Dog · 2w
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    class="dropdown-item text-center small text-gray-500"
-                    href="#"
-                    >Read More Messages</a
-                  >
-                </div>
-              </li>
-
+              
               <div class="topbar-divider d-none d-sm-block"></div>
 
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="userDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Douglas McGee</span
-                  >
-                  <img
-                    class="img-profile rounded-circle"
-                    src="img/undraw_profile.svg"
-                  />
+                <?php
+                include_once "koneksi.php";
+                $username = $_SESSION['username'];
+                $qUser = mysqli_query($con, "SELECT * FROM users WHERE username = '" . mysqli_real_escape_string($con, $username) . "' LIMIT 1");
+                $userData = mysqli_fetch_assoc($qUser);
+                $namaTampil = isset($userData['username']) ? $userData['username'] : $username;
+                $fotoTampil = isset($userData['foto']) && $userData['foto'] ? 'dfoto/' . $userData['foto'] : 'img/undraw_profile.svg';
+                ?>
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    <?= htmlspecialchars($namaTampil) ?>
+                  </span>
+                  <img class="img-profile rounded-circle" src="<?= htmlspecialchars($fotoTampil) ?>" alt="Profile Picture" />
                 </a>
-                <!-- Dropdown - User Information -->
-                <div
-                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="userDropdown"
-                >
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#logoutModal"
-                  >
-                    <i
-                      class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
-                    ></i>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="logout.php">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
                   </a>
                 </div>
@@ -400,19 +179,19 @@
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Berita</h6>
-                        </div>
                         <div class="card-body">
-                          <a href="tambah.php?d=<?php echo "berita";?>" class="btn btn-primary">Tambah Data</a>                      
+                          <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Data Berita</h6>
+                            <a href="tambah.php?d=berita" class="btn btn-success btn-sm"><i class="fas fa-plus"></i> Tambah Berita</a>
+                          </div>
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-striped table-hover align-middle" id="dataTable" width="100%" cellspacing="0">
                                 <?php
                                 include "koneksi.php";
-						$halaman = 5;
-						$page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
-						$mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
-						$cari = isset($_GET['cari']) ? mysqli_real_escape_string($con, $_GET['cari']) : '';
+            $halaman = 5;
+            $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
+            $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+            $cari = isset($_GET['cari']) ? mysqli_real_escape_string($con, $_GET['cari']) : '';
 
 if ($cari != '') {
   $result = mysqli_query($con, "SELECT * FROM berita WHERE judul LIKE '%$cari%' OR isi LIKE '%$cari%'");
@@ -428,34 +207,36 @@ if ($cari != '') {
   $query = mysqli_query($con, "SELECT * FROM berita LIMIT $mulai, $halaman") or die(mysqli_error($con));
 }
 
-						$pages = ceil($total/$halaman);
+            $pages = ceil($total/$halaman);
 
-					?>    
-                                <thead>
+          ?>    
+                                <thead class="table-primary">
                                         <tr>
-                                            <th>NO</th>
+                                            <th class="text-center">NO</th>
                                             <th>FOTO</th>
                                             <th>JUDUL</th>
                                             <th>ISI</th>
                                             <th>TANGGAL</th>
-                                            <th>AKSI</th>
+                                            <th class="text-center">AKSI</th>
                                         </tr>
                                     </thead>
+                                    <tbody>
                                     <?php
                                     include "koneksi.php";                                
 while($d = mysqli_fetch_array($query)) { ?>
 <tr>
-  <td><?php echo $d[0]; ?></td>
-  <td><img src="dfoto/<?php echo $d[1]; ?>" width="100" height="70" style="object-fit:cover;" /></td>
-  <td><?php echo $d[2]; ?></td>
-  <td><?php echo substr(strip_tags($d[3]), 0, 100); ?>...</td>
-  <td><?php echo date('d M Y', strtotime($d[4])); ?></td>
-  <td>
-    <a href="edit.php?id=<?php echo $d[0]; ?>&d=berita" class="btn btn-sm btn-warning mb-1">Edit</a>
-    <a href="hapus.php?id=<?php echo $d[0]; ?>&d=berita" class="btn btn-sm btn-danger mb-1" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+  <td class="text-center align-middle"><?php echo $d[0]; ?></td>
+  <td class="align-middle"><img src="dfoto/<?php echo $d[1]; ?>" width="100" height="70" style="object-fit:cover; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);" /></td>
+  <td class="align-middle"><strong><?php echo $d[2]; ?></strong></td>
+  <td class="align-middle text-muted"><?php echo substr(strip_tags($d[3]), 0, 100); ?>...</td>
+  <td class="align-middle"><span class="badge bg-info text-dark"><?php echo date('d M Y', strtotime($d[4])); ?></span></td>
+  <td class="text-center align-middle">
+    <a href="edit.php?id=<?php echo $d[0]; ?>&d=berita" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+    <a href="hapus.php?id=<?php echo $d[0]; ?>&d=berita" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i> Hapus</a>
   </td>
 </tr>
 <?php } ?>                                   
+                                    </tbody>
                                 </table>
                                 <!-- Pagination -->
 <nav aria-label="Page navigation">
@@ -495,9 +276,8 @@ while($d = mysqli_fetch_array($query)) { ?>
 
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2020</span>
+              <span>Copyright &copy; Your Website 2025</span>
             </div>
           </div>
         </footer>
@@ -512,44 +292,7 @@ while($d = mysqli_fetch_array($query)) { ?>
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div
-      class="modal fade"
-      id="logoutModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button
-              class="close"
-              type="button"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Select "Logout" below if you are ready to end your current session.
-          </div>
-          <div class="modal-footer">
-            <button
-              class="btn btn-secondary"
-              type="button"
-              data-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <a class="btn btn-primary" href="login.php">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Logout langsung ke logout.php agar session benar-benar dihapus dan harus login ulang -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

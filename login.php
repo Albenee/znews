@@ -6,32 +6,23 @@ if (isset($_POST['login'])) {
   $email = mysqli_real_escape_string($con, $_POST['email']);
   $password = mysqli_real_escape_string($con, $_POST['password']);
 
-  $query = mysqli_query($con, "SELECT * FROM users WHERE email='$email' AND password='$password'");
+  $query = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
   $data = mysqli_fetch_assoc($query);
-  // proses login...
-  $_SESSION['login_success'] = true;
 
-  if ($data['level'] == 'admin') {
-    header("Location: index.php");
-    exit;
-  } else {
-    header("Location: indexx.php");
-    exit;
-  }
-
-
-  if ($data) {
+  if ($data && password_verify($password, $data['password'])) {
     $_SESSION['id'] = $data['id'];
     $_SESSION['username'] = $data['username'];
     $_SESSION['level'] = $data['level'];
-echo "<script>console.log('Login berhasil dengan level: {$data['level']}');</script>";
-
-    if ($data['level'] == 'admin') {
-      header("Location:index.php");
+    // Set session khusus user
+    if ($data['level'] == 'users') {
+      $_SESSION['id_user'] = $data['id'];
+      header("Location: indexx.php");
       exit;
-    } elseif ($data['level'] == 'users') {
-      header("Location:indexx.php");
+    } elseif ($data['level'] == 'admin') {
+      header("Location: index.php");
       exit;
+    } else {
+      echo "<script>alert('Level tidak dikenali.');</script>";
     }
   } else {
     echo "<script>alert('Login gagal! Email atau password salah.');</script>";
@@ -132,19 +123,7 @@ echo "<script>console.log('Login berhasil dengan level: {$data['level']}');</scr
   </div>
 </form>
 
-          <div class="text-center mt-3">
-            <a href="#">Forgot password?</a>
-          </div>
-          <hr />
-          <div class="text-center">
-            <p>Login with Social Media</p>
-            <a href="#" class="btn btn-danger btn-social"
-              ><i class="fab fa-google"></i>Login with Google</a
-            >
-            <a href="#" class="btn btn-primary btn-social"
-              ><i class="fab fa-facebook-f"></i>Login with Facebook</a
-            >
-          </div>
+          <!-- Social login and forgot password removed as requested -->
           <div class="text-center mt-3">
             <p>Don't have an account? <a href="registrasi.php">Sign up</a></p>
           </div>
